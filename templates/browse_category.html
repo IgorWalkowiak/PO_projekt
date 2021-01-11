@@ -2,20 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Kategorie!</title>
+    <title>Recipes!</title>
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='assets/style.css') }}">
   </head>
   <body>
-  <br>
-  <h1> katalog </h1>
-  <br>
-            {% for category in categories %}
+  <h1> Kategoria! </h1>
+            {% for product in products %}
                 <div class="category">
-                    <p class = 'title'> <a href="/category/{{category.id}}">{{category.name}}</a> </p>
+                    <p class = 'title'> {{product.name}} </p>
+                    <p class = 'desc'> {{product.description}} </p>
+                    <p class = 'price'> {{product.price}} </p>
+                    <p class = 'amount'> {{product.amount}} </p>
                 </div>
             {% endfor %}
-
-  <br>
   <nav>
       <a href="/">Strona Główna</a>
       <a href="/cart">Koszyk</a>

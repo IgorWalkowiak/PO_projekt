@@ -14,15 +14,15 @@ meta = MetaData()
 products = Table(
    'products', meta,
    Column('id', Integer, primary_key=True),
-   Column('category', Integer, ForeignKey("catalog.id"), nullable=False),
+   Column('category', Integer, ForeignKey("categories.id"), nullable=False),
    Column('name', String(100), nullable=False),
    Column('description', String(1000), nullable=False),
    Column('price', Integer, nullable=False),
    Column('amount', Integer, nullable=False)
 )
 
-catalog = Table(
-   'catalog', meta,
+category = Table(
+   'categories', meta,
    Column('id', Integer, primary_key=True),
    Column('name', String(100), nullable=False)
 )
