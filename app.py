@@ -28,4 +28,4 @@ def category(category_id):
     return render_template('browse_category.html', products=prod_in_category)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='127.0.0.1', port=8080)
