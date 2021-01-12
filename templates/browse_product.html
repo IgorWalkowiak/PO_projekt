@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Recipes!</title>
-    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='assets/style.css') }}">
-  </head>
-  <body>
-  produkt
-  <nav>
-      <a href="/">Strona Główna</a>
-      <a href="/cart">Katalog</a>
-      <a href="/browse">Katalog</a>
-  </nav>
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block page %}{{title}}{% endblock %}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <table class="category-container">
+      <tr class="product">
+        <td class='product-image product-detail'><img src="{{ url_for('static',filename='icons/star.svg') }}" /></td>
+        <td class='product-title product-detail'> {{product.name}} </td>
+        <td class='product-title product-detail'>  <a href="/addToCart/{{product.id}}">Dodaj do koszyka</a></td>
+      </tr>
+  </table>
+{% endblock %}
