@@ -37,6 +37,7 @@ def cart():
     return render_template('cart.html',
         products=[], title="Koszyk")
 
+
 @app.route('/catalog')
 def catalog():
     categories = Category.query.all()
@@ -52,18 +53,15 @@ def product(product_id):
     product = Product.query.filter(Product.id == product_id).first()
     return render_template('browse_product.html', product=product, title=f'{product.name}')
 
-@app.route('/addToCart/<product_id>')
-def add_to_cart(product_id):
+@app.route('/addToCart/<product_id>/<amount>')
+def add_to_cart(product_id, amount):
     product_to_cart = Product.query.filter(Product.id == product_id).first()
-    if product_to_cart is not None:
-        try:
-            print('1')
-            session['cart'] = session['cart'] + [product_id]
-        except KeyError:
-            print('2')
-            session['cart'] = [product_id]
-
-
+    for i in range(int(amount)):
+        if product_to_cart is not None:
+            try:
+                    session['cart'] = session['cart'] + [product_id]
+            except KeyError:
+                    session['cart'] = [product_id]
         print(session['cart'])
     return product(product_id)
 
