@@ -8,9 +8,9 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  {% for category in categories %}
-    <div class="category">
-      <p class = 'title'> <a href="/category/{{category.id}}">{{category.name}}</a> </p>
-    </div>
-  {% endfor %}
+  <ul class="category-container">
+    {% for category in categories %}
+      <li class = 'category'> <a href="/category/{{category.id}}">{{category.name}}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock %}
