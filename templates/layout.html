@@ -1,0 +1,121 @@
+{% from "macros.html" import nav_link with context %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+      <title>{% block title %}{% endblock %} - Media RTV</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: auto;
+        min-height: 1vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h2 {color: red;}
+
+      .cart {
+        background: #f5f5f5;
+      }
+
+      .navbar {
+        background: #3c5bff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+        margin: 0;
+      }
+
+      .nav-link {
+        display: inline;
+        text-decoration: none;
+      }
+
+      a:link, a:visited {
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .navbar-item {
+        display: inline;
+      }
+
+      .navbar-header {
+        padding-left: 5px;
+        padding-top: 5px;
+        font-size: 50px;
+      }
+
+      .navbar-nav {
+        color:black;
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navbar-nav a {
+        color: black;
+      }
+
+      .active {
+        font-weight: bold;
+      }
+
+      .search {
+        border-radius: 15px;
+        padding: 5px;
+        padding-left: 21px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-header navbar-item">
+        <a class="nav-link navbar-brand" href="/">Media RTV</a>
+      </div>
+      <div class="navbar-item">
+        <ul class="navbar-nav">
+          {{ nav_link('home', 'Strona główna') }}
+          {{ nav_link('cart', 'Koszyk') }}
+          {{ nav_link('catalog', 'Katalog') }}
+        </ul>
+      </div>
+      <div class="navbar-item">
+        <input type="text" class="search" placeholder="Search">
+        <a class="nav-link" href="#">Wyloguj się</a>
+      </div>
+    </nav>
+    <div class="container">
+      {% block heading %}
+        <h1>{% block page %}{% endblock %} - Flask Super Example</h1>
+      {% endblock %}
+
+      {% block content %}{% endblock %}
+
+      <div class="footer">
+        Footer
+      </div>
+    </div>
+  </body>
+</html>

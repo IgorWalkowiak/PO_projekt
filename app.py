@@ -2,6 +2,7 @@ from database import init_db
 from flask import Flask, render_template
 import credentials
 from models import Category, Product
+import datetime
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
@@ -13,7 +14,8 @@ def home():
 
 @app.route('/cart')
 def cart():
-    return render_template('cart.html')
+    return render_template('cart1.html',
+        my_list=[], title="Koszyk", current_time=datetime.datetime.now())
 
 @app.route('/catalog')
 def catalog():
@@ -26,4 +28,4 @@ def category(category_id):
     return render_template('browse_category.html', products=prod_in_category)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
