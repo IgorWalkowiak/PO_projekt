@@ -37,10 +37,14 @@ h2 {color: red;}
 .nav-link {
   text-decoration: none;
   color: white;
-  padding: 14px 25px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.navbar-left {
+  margin-right: 10px;
 }
 
 .navbar-item {
@@ -49,6 +53,8 @@ h2 {color: red;}
 
 .navbar-nav {
   background: #ffffff;
+  margin: 0;
+  padding: 5px 10px;
 }
 
 .navbar-nav a:link, .navbar-nav a:visited {
@@ -63,7 +69,7 @@ h2 {color: red;}
 
 a:link, a:visited {
   color: white;
-  padding: 14px 25px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -78,6 +84,7 @@ a:link, a:visited {
   padding: 5px;
   padding-left: 21px;
   border: 0;
+  height: 3em;
 }
 
 .category {

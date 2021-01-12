@@ -20,21 +20,16 @@
           {{ nav_link('catalog', 'Katalog') }}
         </ul>
       </div>
-      <div class="navbar-item">
+      <div class="navbar-item navbar-left">
         <input type="text" class="search" placeholder="Search">
         <a class="nav-link" href="#">Wyloguj się</a>
       </div>
     </nav>
     <div class="container">
       {% block heading %}
-        <h1>{% block page %}{% endblock %} - Flask Super Example</h1>
+        <h1>{% block page %}{% endblock %} - Media RTV</h1>
       {% endblock %}
-
       {% block content %}{% endblock %}
-
-      <div class="footer">
-        Footer
-      </div>
     </div>
   </body>
 </html>
