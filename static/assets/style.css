@@ -1,4 +1,4 @@
-p {
+/* p {
   padding: 1px;
   margin: 1px;
 }
@@ -11,7 +11,7 @@ p {
   margin: 10px;
 }
 
-.step{  
+.step{
   background-color: #bdb3b3;
   width: 500px;
   border: 2px solid green;
@@ -19,7 +19,7 @@ p {
   margin: 20px;
 }
 
-.ingredient{  
+.ingredient{
   background-color: #bdb3b3;
   width: 200px;
   border: 2px solid green;
@@ -29,6 +29,7 @@ p {
 
 .title{
 font-size : 2em;
+color:black;
 }
 
 .posVote{
@@ -49,7 +50,7 @@ margin: 10px;
 
 }
 
-.recipes{  
+.recipes{
   width: 850px;
   border: 15px solid black;
   padding: 20px;
@@ -65,4 +66,4 @@ width: 50px;
   border: 3px solid black;
   padding: 5px;
   margin: 5px;
-}
+} */

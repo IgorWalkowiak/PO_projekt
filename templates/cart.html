@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Recipes!</title>
-    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='assets/style.css') }}">
-  </head>
-  <body>
-  Koszyk
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block page %}{{title}}{% endblock %}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <div class="cart">
+    <ul>
+      {% if my_list %}
+        {% for n in my_list %}
+          <li>{{n}}</li>
+        {% endfor %}
+      {% else %}
+        <p>Twój koszyk jest pusty</p>
+      {% endif %}
+    </ul>
+  </div>
 
-  <nav>
-      <a href="/">Strona Główna</a>
-      <a href="/cart">Katalog</a>
-      <a href="/browse">Katalog</a>
-  </nav>
-  </body>
-</html>
+{% endblock %}

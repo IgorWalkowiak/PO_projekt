@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Kategorie!</title>
-    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='assets/style.css') }}">
-  </head>
-  <body>
-  <br>
-  <h1> katalog </h1>
-  <br>
-            {% for category in categories %}
-                <div class="category">
-                    <p class = 'title'> <a href="/category/{{category.id}}">{{category.name}}</a> </p>
-                </div>
-            {% endfor %}
-
-  <br>
-  <nav>
-      <a href="/">Strona Główna</a>
-      <a href="/cart">Koszyk</a>
-      <a href="/browse">Katalog</a>
-  </nav>
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block page %}{{title}}{% endblock %}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  {% for category in categories %}
+    <div class="category">
+      <p class = 'title'> <a href="/category/{{category.id}}">{{category.name}}</a> </p>
+    </div>
+  {% endfor %}
+{% endblock %}

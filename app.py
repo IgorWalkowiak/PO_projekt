@@ -10,11 +10,11 @@ init_db()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('template.html', title="Index", current_time=datetime.datetime.now())
 
 @app.route('/cart')
 def cart():
-    return render_template('cart1.html',
+    return render_template('cart.html',
         my_list=[], title="Koszyk", current_time=datetime.datetime.now())
 
 @app.route('/catalog')
