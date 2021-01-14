@@ -113,3 +113,8 @@ a:link, a:visited {
 .product-detail {
   padding: 0 2%;
 }
+
+.product-image {
+  height: 20px;
+  width: 20px;
+}

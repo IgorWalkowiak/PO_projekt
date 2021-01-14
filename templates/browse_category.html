@@ -11,11 +11,11 @@
   <table class="category-container">
     {% for product in products %}
       <tr class="product">
-        <td class='product-image product-detail'><img src="{{ url_for('static',filename='icons/star.svg') }}" /></td>
-        <td class='product-title product-detail'> {{product.name}} </td>
-        <td class='product-desc product-detail'> {{product.description}} </td>
-        <td class='product-price product-detail'> {{product.price}} </td>
-        <td class='product-amount product-detail'> {{product.amount}} </td>
+        <td class='product-detail'><img class="product-image" src={{ url_for('static', filename='icons/star.svg') }} /></td>
+        <td class='product-title product-detail'>{{product.name}}</td>
+        <td class='product-desc product-detail'>Opis: {{product.description}}</td>
+        <td class='product-price product-detail'>Cena: {{product.price}}</td>
+        <td class='product-amount product-detail'>Ilość: {{product.amount}}</td>
       </tr>
     {% endfor %}
   </table>
