@@ -10,9 +10,9 @@
 {% block content %}
   <div class="cart">
     <ul>
-      {% if my_list %}
-        {% for n in my_list %}
-          <li>{{n}}</li>
+      {% if products %}
+        {% for n in products %}
+          <li>{{n.name}}  ___  {{n.amount}}</li>
         {% endfor %}
       {% else %}
         <p>Twój koszyk jest pusty</p>
