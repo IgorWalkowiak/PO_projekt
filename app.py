@@ -27,7 +27,7 @@ def cart():
         for order in orders:
             db_product = Product.query.filter(Product.id==order).first()
             order_amount = session['cart'].count(order)
-            ordered_products.append(frontent_models.CartProduct(db_product.name, order_amount))
+            ordered_products.append(frontend_models.CartProduct(db_product.name, order_amount))
         return render_template('cart.html',
                                products=ordered_products, title="Koszyk")
     except KeyError:
