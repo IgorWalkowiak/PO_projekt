@@ -2,7 +2,7 @@ from database import init_db
 from flask import Flask, render_template, session
 import credentials
 from models import Category, Product
-import frontent_models
+import frontend_models
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
