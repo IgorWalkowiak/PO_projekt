@@ -17,6 +17,10 @@
       {% else %}
         <p>Twój koszyk jest pusty</p>
       {% endif %}
+      {% if price %}
+          <h3>Do zapłaty {{price}} zł</h3>
+      {% endif %}
+
     </ul>
    <div class="order-link">
       {{ nav_link('order_form', 'Zamów') }}

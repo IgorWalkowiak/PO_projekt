@@ -25,14 +25,21 @@ def cart():
         print(orders)
         ordered_products = []
         for order in orders:
-            db_product = Product.query.filter(Product.id==order).first()
+            db_product = Product.query.filter(Product.id == order).first()
             order_amount = session['cart'].count(order)
             ordered_products.append(frontend_models.CartProduct(db_product.name, order_amount))
+
+        sum = 0
+        for product in ordered_products:
+            db_product = Product.query.filter(Product.name == product.name).first()
+            sum = sum + db_product.price * product.amount
+
         return render_template('cart.html',
-                               products=ordered_products, title="Koszyk")
+                               products=ordered_products, title="Koszyk", price=sum)
     except KeyError:
         return render_template('cart.html',
                            products=[], title="Koszyk")
+
 
     return render_template('cart.html',
         products=[], title="Koszyk")
@@ -45,6 +52,37 @@ def catalog():
 
 @app.route('/order_form')
 def order_form():
+    return render_template('order_form.html', title='Formularz zamówienia')
+
+@app.route('/order', methods=['POST'])
+def order():
+    if request.method == 'POST':
+        print(request.form)
+        delivery_type = request.form['delivery-type']
+        try:
+            orders = list(set(session['cart']))
+            ordered_products = []
+            for order in orders:
+                db_product = Product.query.filter(Product.id == order).first()
+                order_amount = session['cart'].count(order)
+                ordered_products.append(frontend_models.CartProduct(db_product.name, order_amount))
+
+            sum = 0
+            for product in ordered_products:
+                db_product = Product.query.filter(Product.name == product.name).first()
+                sum = sum + db_product.price*product.amount
+                if product.amount > db_product.amount:
+                    raise Exception("Przekroczyłeś produkty w magazynie")
+            session['cart']=[]
+            return render_template('order_result.html', price=sum)
+
+        except KeyError:
+            print('error1')
+
+        except Exception as e:
+            session['cart'] = []
+            return home()
+
     return render_template('order_form.html', title='Formularz zamówienia')
 
 @app.route('/category/<category_id>')
@@ -70,5 +108,6 @@ def add_to_cart():
                 except KeyError:
                         session['cart'] = [product_id]
         return cart()
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
