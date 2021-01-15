@@ -9,12 +9,11 @@
 {% endblock %}
 {% block content %}
   <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="{{ url_for('static', filename='assets/browse_product.js') }}"></script>
   <table class="category-container">
       <tr class="product">
-        <td class='product-image product-detail'><img src="{{ url_for('static',filename='icons/star.svg') }}" /></td>
+        <td class='product-image product-detail'><img src="{{ url_for('static', filename='icons/star.svg') }}" /></td>
         <td class='product-title product-detail'> {{product.name}} </td>
-        <td class='product-title product-detail'><a href="/addToCart/{{product.id}}">Dodaj do koszyka</a></td>
+        <td class='product-title product-detail'><a id="addToCart" href="/addToCart/{{ product.id }}">Dodaj do koszyka</a></td>
         <td>
           <div class="quantity buttons_added">
             <input type="button" value="-" class="minus">
@@ -30,10 +29,13 @@
               size="4"
               pattern=""
               inputmode=""
+              id="qtyNumber"
             >
             <input type="button" value="+" class="plus">
           </div>
         </td>
       </tr>
   </table>
+
+  <script src="{{ url_for('static', filename='assets/browse_product.js') }}"></script>
 {% endblock %}
