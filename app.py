@@ -74,9 +74,7 @@ def order():
                 if product.amount > db_product.amount:
                     raise Exception("Przekroczyłeś produkty w magazynie")
 
-            print("AHOJ111")
             for product in ordered_products:
-                print("AHOJ")
                 db_product = Product.query.filter(Product.name == product.name).first()
                 db_product.amount = db_product.amount - product.amount
                 print(db_product.amount)
