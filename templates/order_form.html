@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block page %}{{title}}{% endblock %}
+{% block heading %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <h3> Złóż zamówienie </h3>
+  <form class="order-form">
+    <label>Wybierz miejsce odbioru zamówienia:</label>
+    <div class="delivery-form">
+      <div>
+        <input class="delivery-radio" type="radio" name="delivery-type" value="pickup-in-person">
+        <label for="pickup-in-person">Odbiór osobisty</label>
+      </div>
+      <div>
+        <input class="delivery-radio" type="radio" name="delivery-type" value="delivery">
+        <label for="delivery">Dostawa na miejsce</label>
+      </div>
+      <div>
+        <input class="delivery-radio" type="radio" name="delivery-type" value="safe">
+        <label for="safe">Bezpieczna dostawa</label>
+      </div>
+    </div>
+
+    <div id="address" class="address-form">
+      <input type="text" placeholder="Wpisz miasto...">
+      <input type="text" placeholder="Wpisz ulicę...">
+      <input type="text" placeholder="Wpisz numer budynku...">
+      <input type="text" placeholder="Wpisz numer lokalu...">
+    </div>
+
+    <label>Wybierz sposób płatności:</label>
+    <div>
+      <input type="radio" name="payment-type" value="payment-in-person">
+      <label for="payment-in-person">Odbiór osobisty</label>
+    </div>
+    <div>
+      <input type="radio" name="payment-type" value="internet-payment">
+      <label for="internet-payment">Dostawa na miejsce</label>
+    </div>
+
+    <input type="submit" value="Zamów">
+  </form>
+
+  <script src="{{ url_for('static', filename='assets/order_form.js') }}"></script>
+{% endblock %}

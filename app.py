@@ -43,6 +43,10 @@ def catalog():
     categories = Category.query.all()
     return render_template('browse_categories.html', categories=categories, title='Kategorie')
 
+@app.route('/order_form')
+def order_form():
+    return render_template('order_form.html', title='Formularz zamówienia')
+
 @app.route('/category/<category_id>')
 def category(category_id):
     prod_in_category = Product.query.filter(Product.category == category_id).all()
