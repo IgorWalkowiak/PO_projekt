@@ -2,7 +2,7 @@ from database import init_db, db_session
 from flask import Flask, render_template, session, request
 import credentials
 from models import Category, Product
-import frontend_models
+from product import Product
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
@@ -27,7 +27,7 @@ def cart():
         for order in orders:
             db_product = Product.query.filter(Product.id == order).first()
             order_amount = session['cart'].count(order)
-            ordered_products.append(frontend_models.CartProduct(db_product.name, order_amount))
+            ordered_products.append(Product(db_product.name, order_amount, db_product.price))
 
         sum = 0
         for product in ordered_products:
@@ -65,7 +65,7 @@ def order():
             for order in orders:
                 db_product = Product.query.filter(Product.id == order).first()
                 order_amount = session['cart'].count(order)
-                ordered_products.append(frontend_models.CartProduct(db_product.name, order_amount))
+                ordered_products.append(Product(db_product.name, order_amount,db_product.price))
 
             sum = 0
             for product in ordered_products:
