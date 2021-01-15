@@ -1,4 +1,4 @@
-from database import init_db
+from database import init_db, db_session
 from flask import Flask, render_template, session, request
 import credentials
 from models import Category, Product
@@ -73,6 +73,17 @@ def order():
                 sum = sum + db_product.price*product.amount
                 if product.amount > db_product.amount:
                     raise Exception("Przekroczyłeś produkty w magazynie")
+
+            print("AHOJ111")
+            for product in ordered_products:
+                print("AHOJ")
+                db_product = Product.query.filter(Product.name == product.name).first()
+                db_product.amount = db_product.amount - product.amount
+                print(db_product.amount)
+                db_session.add(db_product)
+                db_session.commit()
+
+
             session['cart']=[]
             return render_template('order_result.html', price=sum)
 
