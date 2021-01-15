@@ -9,33 +9,38 @@
 {% endblock %}
 {% block content %}
   <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <table class="category-container">
+
+    <form action="/addToCart" method="post">
+    <table class="category-container">
       <tr class="product">
         <td class='product-image product-detail'><img src="{{ url_for('static', filename='icons/star.svg') }}" /></td>
         <td class='product-title product-detail'> {{product.name}} </td>
-        <td class='product-title product-detail'><a id="addToCart" href="/addToCart/{{ product.id }}">Dodaj do koszyka</a></td>
+        <td class='product-title product-detail'><input type="submit" value="add to cart"></td>
         <td>
           <div class="quantity buttons_added">
-            <input type="button" value="-" class="minus">
-            <input
-              type="number"
-              step="1"
-              min="1"
-              max="{{ product.amount }}"
-              name="quantity"
-              value="1"
-              title="Qty"
-              class="input-text qty text"
-              size="4"
-              pattern=""
-              inputmode=""
-              id="qtyNumber"
-            >
-            <input type="button" value="+" class="plus">
+              <input type="button" value="-" class="minus">
+              <input
+                type="number"
+                step="1"
+                min="1"
+                max="{{ product.amount }}"
+                name="quantity"
+                value="1"
+                title="Qty"
+                class="input-text qty text"
+                size="4"
+                pattern=""
+                inputmode=""
+                id="qtyNumber"
+              >
+              <input type="button" value="+" class="plus">
+              <input name ='product_id' type="hidden" value="{{product.id}}">
+
           </div>
         </td>
       </tr>
   </table>
+  </form>
 
   <script src="{{ url_for('static', filename='assets/browse_product.js') }}"></script>
 {% endblock %}

@@ -1,5 +1,5 @@
 from database import init_db
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, request
 import credentials
 from models import Category, Product
 import frontend_models
@@ -57,17 +57,18 @@ def product(product_id):
     product = Product.query.filter(Product.id == product_id).first()
     return render_template('browse_product.html', product=product, title=f'{product.name}')
 
-@app.route('/addToCart/<product_id>/<amount>')
-def add_to_cart(product_id, amount):
-    product_to_cart = Product.query.filter(Product.id == product_id).first()
-    for i in range(int(amount)):
-        if product_to_cart is not None:
-            try:
-                    session['cart'] = session['cart'] + [product_id]
-            except KeyError:
-                    session['cart'] = [product_id]
-        print(session['cart'])
-    return product(product_id)
-
+@app.route('/addToCart', methods=['POST'])
+def add_to_cart():
+    if request.method == 'POST':
+        product_id = request.form['product_id']
+        amount = request.form['quantity']
+        product_to_cart = Product.query.filter(Product.id == product_id).first()
+        for i in range(int(amount)):
+            if product_to_cart is not None:
+                try:
+                        session['cart'] = session['cart'] + [product_id]
+                except KeyError:
+                        session['cart'] = [product_id]
+        return cart()
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
