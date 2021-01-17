@@ -51,6 +51,10 @@ body {
   flex-direction: column;
 }
 
+.delivery-form {
+  padding: 10px;
+}
+
 .address-form {
   display: none;
 }
@@ -58,6 +62,22 @@ body {
 .address-form-active {
   display: flex;
   flex-direction: column;
+  padding: 10px;
+}
+
+.address-input {
+  margin: 1px;
+  width: fit-content;
+  padding: 5px;
+  border-width: 0px;
+  border-color: #CCCCCC;
+  border-style: inset;
+  border-radius: 0px;
+  box-shadow: 0px 2px 0px rgba(66,66,66,.35);
+}
+
+ .address-input:focus {
+     outline:none;
 }
 
 .navbar {

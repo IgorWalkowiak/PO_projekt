@@ -10,8 +10,8 @@
 {% block content %}
   <h3> Złóż zamówienie </h3>
   <form class="order-form" action="/order" method="post">
-    <label>Wybierz miejsce odbioru zamówienia:</label>
     <div class="delivery-form">
+      <label>Wybierz miejsce odbioru zamówienia:</label>
       <div>
         <input class="delivery-radio" type="radio" name="delivery-type" value="pickup-in-person">
         <label for="pickup-in-person">Odbiór osobisty</label>
@@ -27,20 +27,22 @@
     </div>
 
     <div id="address" class="address-form">
-      <input type="text" placeholder="Wpisz miasto...">
-      <input type="text" placeholder="Wpisz ulicę...">
-      <input type="text" placeholder="Wpisz numer budynku...">
-      <input type="text" placeholder="Wpisz numer lokalu...">
+      <input class="address-input" type="text" placeholder="Wpisz miasto...">
+      <input class="address-input" type="text" placeholder="Wpisz ulicę...">
+      <input class="address-input" type="text" placeholder="Wpisz numer budynku...">
+      <input class="address-input" type="text" placeholder="Wpisz numer lokalu...">
     </div>
 
-    <label>Wybierz sposób płatności:</label>
-    <div>
-      <input type="radio" name="payment-type" value="payment-in-person">
-      <label for="payment-in-person">Odbiór osobisty</label>
-    </div>
-    <div>
-      <input type="radio" name="payment-type" value="internet-payment">
-      <label for="internet-payment">Dostawa na miejsce</label>
+    <div class="delivery-form">
+      <label>Wybierz sposób płatności:</label>
+      <div>
+        <input type="radio" name="payment-type" value="payment-in-person">
+        <label for="payment-in-person">Płatność przy odbiorze</label>
+      </div>
+      <div>
+        <input type="radio" name="payment-type" value="internet-payment">
+        <label for="internet-payment">Płatność internetowa</label>
+      </div>
     </div>
 
     <input type="submit" value="Zamów">
