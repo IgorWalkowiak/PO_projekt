@@ -23,6 +23,9 @@
           </div>
           <div class="product-details">
             <p>Ilość: {{ product.amount }}</p>
+            {% if product.amount == 0 %}
+              <button class="no-prod-btn" type="button">Powiadom mnie o dostępności</button>
+            {% endif %}
             <p>Cena: {{ product.price }} zł / szt.</p>
             <div class="quantity buttons_added">
               <input type="button" value="-" class="minus">
