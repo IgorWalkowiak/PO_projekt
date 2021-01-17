@@ -1,6 +1,7 @@
 from models import Category,Product
 from database import init_db, db_session
 
+
 init_db()
 
 
@@ -24,11 +25,6 @@ products = [
     (4, "Piekarniki LG", "Opis piekarnika", 400, 31),
     (5, "Mikrofala SAMSUNG", "Opis mikrofali", 450, 65)
 ]
-
-
-
-
-
 
 for category in categories:
     cat = Category(category)

@@ -11,13 +11,20 @@
   <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <form action="/addToCart" method="post">
-    <table class="category-container">
-      <tr class="product">
-        <td class='product-image product-detail'><img src="{{ url_for('static', filename='icons/star.svg') }}" /></td>
-        <td class='product-title product-detail'> {{product.name}} </td>
-        <td class='product-title product-detail'><input type="submit" value="add to cart"></td>
-        <td>
-          <div class="quantity buttons_added">
+      <div class="product-info">
+        <h3 class='product-title product-detail'> {{product.name}} </h3>
+        <div class="product-first-row">
+          <div>
+            <img class="product-image--big" src="{{ url_for('static', filename='icons/star.svg') }}" />
+            <div>
+              <button type="button">Poprzednie <br> zdjęcie</button>
+              <button type="button">Następne <br> zdjęcie</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <p>Ilość: {{ product.amount }}</p>
+            <p>Cena: {{ product.price }} zł / szt.</p>
+            <div class="quantity buttons_added">
               <input type="button" value="-" class="minus">
               <input
                 type="number"
@@ -34,12 +41,13 @@
                 id="qtyNumber"
               >
               <input type="button" value="+" class="plus">
-              <input name ='product_id' type="hidden" value="{{product.id}}">
-
+            </div>
+            <input name ='product_id' type="hidden" value="{{product.id}}">
+            <input class="add-to-cart-btn" type="submit" value="Dodaj do koszyka">
           </div>
-        </td>
-      </tr>
-  </table>
+        </div>
+        <p class="product-description">{{ product.description }}</p>
+      </div>
   </form>
 
   <script src="{{ url_for('static', filename='assets/browse_product.js') }}"></script>
