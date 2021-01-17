@@ -102,7 +102,8 @@ def order():
 @app.route('/category/<category_id>')
 def category(category_id):
     prod_in_category = Product.query.filter(Product.category == category_id).all()
-    return render_template('browse_category.html', products=prod_in_category, title=f'Kategoria {category_id}')
+    category_name = Category.query.filter(Category.id == category_id).first().name
+    return render_template('browse_category.html', products=prod_in_category, title=f'Kategoria {category_name}')
 
 
 @app.route('/product/<product_id>')
