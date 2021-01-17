@@ -13,7 +13,7 @@
     <div class="delivery-form">
       <label>Wybierz miejsce odbioru zamówienia:</label>
       <div>
-        <input class="delivery-radio" type="radio" name="delivery-type" value="pickup-in-person">
+        <input class="delivery-radio" type="radio" name="delivery-type" value="pickup-in-person" checked>
         <label for="pickup-in-person">Odbiór osobisty</label>
       </div>
       <div>
@@ -27,7 +27,7 @@
     </div>
 
     <div id="address" class="address-form">
-      <input class="address-input" type="text" placeholder="Wpisz miasto...">
+      <input class="address-input" type="text" placeholder="Wpisz miasto..." pattern="[a-zA-ZĆĄĘŻŹÓŁŃąęźżśóćńł]+">
       <input class="address-input" type="text" placeholder="Wpisz ulicę...">
       <input class="address-input" type="text" placeholder="Wpisz numer budynku...">
       <input class="address-input" type="text" placeholder="Wpisz numer lokalu...">
@@ -36,7 +36,7 @@
     <div class="delivery-form">
       <label>Wybierz sposób płatności:</label>
       <div>
-        <input type="radio" name="payment-type" value="payment-in-person">
+        <input type="radio" name="payment-type" value="payment-in-person" checked>
         <label for="payment-in-person">Płatność przy odbiorze</label>
       </div>
       <div>
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <input type="submit" value="Zamów">
+    <input class="order-btn" type="submit" value="Zamów">
   </form>
 
   <script src="{{ url_for('static', filename='assets/order_form.js') }}"></script>
