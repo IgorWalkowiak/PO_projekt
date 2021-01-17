@@ -18,6 +18,7 @@ def reset():
 def home():
     return render_template('template.html', title="Strona główna")
 
+
 @app.route('/cart')
 def cart():
     try:
@@ -50,9 +51,11 @@ def catalog():
     categories = Category.query.all()
     return render_template('browse_categories.html', categories=categories, title='Kategorie')
 
+
 @app.route('/order_form')
 def order_form():
     return render_template('order_form.html', title='Formularz zamówienia')
+
 
 @app.route('/order', methods=['POST'])
 def order():
@@ -94,15 +97,18 @@ def order():
 
     return render_template('order_form.html', title='Formularz zamówienia')
 
+
 @app.route('/category/<category_id>')
 def category(category_id):
     prod_in_category = Product.query.filter(Product.category == category_id).all()
     return render_template('browse_category.html', products=prod_in_category, title=f'Kategoria {category_id}')
 
+
 @app.route('/product/<product_id>')
 def product(product_id):
     product = Product.query.filter(Product.id == product_id).first()
     return render_template('browse_product.html', product=product, title=f'{product.name}')
+
 
 @app.route('/addToCart', methods=['POST'])
 def add_to_cart():
@@ -117,6 +123,7 @@ def add_to_cart():
                 except KeyError:
                         session['cart'] = [product_id]
         return cart()
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
