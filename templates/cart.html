@@ -8,22 +8,41 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  <div class="cart">
-    <ul>
+  <div class="cart-container">
+    <table class="cart">
+      <tr>
+        <td><img class="cart-image" src={{ url_for('static', filename='icons/shopping-cart.svg') }} /></td>
+        {% if products %}
+          <td class='product-title product-detail'>Nazwa produktu</td>
+          <td class='product-amount product-detail'>Ilość</td>
+          <td class='product-price product-detail'>Cena</td>
+        {% else %}
+          <td>Twój koszyk jest pusty</td>
+        {% endif %}
+      </tr>
       {% if products %}
         {% for n in products %}
-          <li>{{n.name}}  ___  {{n.amount}}</li>
+          <tr class="product">
+            <td class='product-detail'>
+              <a href="/product/{{ n.id }}">
+                <img class="product-image" src={{ url_for('static', filename='icons/star.svg') }} />
+              </a>
+            </td>
+            <td class='product-title product-detail'>
+              <a href="/product/{{ n.id }}">{{n.name}}</a>
+            </td>
+            <td class='product-amount product-detail'>{{ n.amount }}</td>
+            <td class='product-price product-detail'>{{ n.price }}</td>
+          </tr>
         {% endfor %}
-      {% else %}
-        <p>Twój koszyk jest pusty</p>
-      {% endif %}
-      {% if price %}
-          <h3>Do zapłaty {{price}} zł</h3>
       {% endif %}
 
-    </ul>
-   <div class="order-link">
-      {{ nav_link('order_form', 'Zamów') }}
-   </div>
+    </table>
+    {% if price %}
+      <h4 class="cart-price">Cena całkowita: {{price}} zł</h4>
+      <div class="order-link">
+        {{ nav_link('order_form', 'Zamów') }}
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

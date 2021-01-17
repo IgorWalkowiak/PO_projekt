@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
 init_db()
 
+
 @app.route('/x')
 def reset():
     session['cart'] = []
