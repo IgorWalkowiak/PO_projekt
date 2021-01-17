@@ -1,4 +1,4 @@
-from models import Category,Product
+from models import Category, Product, ShopRatings
 from database import init_db, db_session
 
 
@@ -7,8 +7,8 @@ init_db()
 
 Product.query.delete(synchronize_session=False)
 db_session.commit()
-#Category.query.delete(synchronize_session=False)
-#db_session.commit()
+# Category.query.delete(synchronize_session=False)
+# db_session.commit()
 
 
 categories = ["Pralki", "Zmywarki", "Lodówki", "Piekarniki", "Mikrofale"]
@@ -25,6 +25,12 @@ products = [
     (4, "Piekarniki LG", "Opis piekarnika", 400, 31),
     (5, "Mikrofala SAMSUNG", "Opis mikrofali", 450, 65)
 ]
+ratings = [
+    (3, "Slaby"),
+    (2, None),
+    (5, "Bardzo dobry sklep"),
+    (2, None)
+]
 
 for category in categories:
     cat = Category(category)
@@ -34,4 +40,9 @@ for category in categories:
 for product in products:
     prod = Product(product[0], product[1], product[2], product[3], product[4])
     db_session.add(prod)
+    db_session.commit()
+
+for rating in ratings:
+    rat = ShopRatings(rating[0], rating[1])
+    db_session.add(rat)
     db_session.commit()

@@ -289,3 +289,88 @@ a:link, a:visited {
   width: 50px;
   height: 50px;
 }
+
+textarea {
+    resize: none;
+}
+
+.rate-shop {
+  position: fixed;
+  top: 150px;
+  right: -205px;
+  transition: .3s linear;
+}
+
+.rate-shop:hover {
+  transform: translateX(-205px);
+}
+
+.rate-shop-form::before {
+  position: absolute;
+  content: "Oceny";
+  right: 188px;
+  top: 15px;
+  padding: 2px;
+  transform: rotate(-90deg);
+  background: #c5c5c5;
+}
+
+.rate-shop-form {
+  padding-left: 4px;
+  background: #c5c5c5;
+  display: flex;
+  flex-direction: column;
+}
+
+.rate-form {
+   display: flex;
+  flex-direction: column;
+}
+
+.rate-btn {
+  width: fit-content;
+  align-self: flex-end;
+  margin: 2px;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:rgb(99, 99, 99);
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}

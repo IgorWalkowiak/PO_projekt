@@ -27,6 +27,13 @@ category = Table(
    Column('name', String(100), nullable=False)
 )
 
+ratings = Table(
+   'shop_ratings', meta,
+   Column('id', Integer, primary_key=True),
+   Column('rating', Integer),
+   Column('description', String(100))
+)
+
 meta.create_all(engine)
 
 
