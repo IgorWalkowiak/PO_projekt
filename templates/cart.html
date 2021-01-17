@@ -24,12 +24,10 @@
         {% for n in products %}
           <tr class="product">
             <td class='product-detail'>
-              <a href="/product/{{ n.id }}">
-                <img class="product-image" src={{ url_for('static', filename='icons/star.svg') }} />
-              </a>
+              <img class="product-image" src={{ url_for('static', filename='icons/star.svg') }} />
             </td>
             <td class='product-title product-detail'>
-              <a href="/product/{{ n.id }}">{{n.name}}</a>
+              {{n.name}}
             </td>
             <td class='product-amount product-detail'>{{ n.amount }}</td>
             <td class='product-price product-detail'>{{ n.price }}</td>
