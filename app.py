@@ -6,7 +6,7 @@ from controllers.controller import Controller
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
-controller = Controller(session)
+controller = Controller()
 
 
 @app.route('/x')

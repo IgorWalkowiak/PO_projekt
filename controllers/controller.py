@@ -10,9 +10,8 @@ class Controller:
   avg_rating = db_session.query(func.avg(ShopRatings.rating).label('average')).first().average
   cart_main = Cart()
 
-  def __init__(self, session):
+  def __init__(self):
     init_db()
-    self.session = session
 
 
   def reset(self):
