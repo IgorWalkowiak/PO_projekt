@@ -6,6 +6,7 @@
       <title>{% block title %}{% endblock %} - Media RTV</title>
     {% endblock %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/styles.css') }}" />
   </head>
   <body>
@@ -25,14 +26,14 @@
         <a class="nav-link" href="#">Wyloguj się</a>
       </div>
     </nav>
-    <div class="rate-shop">
+    <div  class="rate-shop">
       <div class="rate-shop-form">
-        <p>Średnia ocen: {% block avg_rating %}{% endblock %}</p>
-        <form class="rate-form">
+        <p>Średnia ocen: {{ avg_rating }}</p>
+        <form id="rate-shop-form" class="rate-form">
+          <label>Oceń sklep:</label>
           <div class="rate">
-            <label>Oceń sklep:</label>
 
-            <input type="radio" id="star5" name="rate" value="5" />
+            <input type="radio" id="star5" name="rate" class="" value="5" />
             <label for="star5" title="text">5 stars</label>
             <input type="radio" id="star4" name="rate" value="4" />
             <label for="star4" title="text">4 stars</label>
@@ -43,8 +44,8 @@
             <input type="radio" id="star1" name="rate" value="1" />
             <label for="star1" title="text">1 star</label>
           </div>
-          <textarea placeholder="Szczegóły (opcjonalnie)..."></textarea>
-          <input class="rate-btn" type="submit" value="Oceń">
+          <textarea id="rate-shop-text" placeholder="Szczegóły (opcjonalnie)..."></textarea>
+          <button id="rate-shop" class="rate-btn" type="button">Oceń</button>
         </form>
       </div>
     </div>
@@ -55,4 +56,5 @@
       {% block content %}{% endblock %}
     </div>
   </body>
+  <script src="{{ url_for('static', filename='assets/rate_shop.js') }}"></script>
 </html>

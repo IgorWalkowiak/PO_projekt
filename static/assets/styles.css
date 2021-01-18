@@ -297,18 +297,18 @@ textarea {
 .rate-shop {
   position: fixed;
   top: 150px;
-  right: -205px;
+  right: -174px;
   transition: .3s linear;
 }
 
 .rate-shop:hover {
-  transform: translateX(-205px);
+  transform: translateX(-177px);
 }
 
 .rate-shop-form::before {
   position: absolute;
   content: "Oceny";
-  right: 188px;
+  right: 159px;
   top: 15px;
   padding: 2px;
   transform: rotate(-90deg);

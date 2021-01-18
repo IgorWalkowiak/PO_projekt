@@ -1,23 +1,26 @@
 from database import init_db, db_session
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, jsonify
 import credentials
-from models import Category, Product
+from models import Category, Product, ShopRatings
 from product import Product as Prod
+from sqlalchemy.sql import func
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
 init_db()
 
+avg_rating = db_session.query(func.avg(ShopRatings.rating).label('average')).first().average
+
 
 @app.route('/x')
 def reset():
     session['cart'] = []
-    return render_template('template.html', title="Strona główna")
+    return render_template('template.html', title="Strona główna", avg_rating=avg_rating)
 
 
 @app.route('/')
 def home():
-    return render_template('template.html', title="Strona główna")
+    return render_template('template.html', title="Strona główna", avg_rating=avg_rating)
 
 
 @app.route('/cart')
@@ -37,25 +40,25 @@ def cart():
             sum = sum + db_product.price * product.amount
 
         return render_template('cart.html',
-                               products=ordered_products, title="Koszyk", price=sum)
+                               products=ordered_products, title="Koszyk", price=sum, avg_rating=avg_rating)
     except KeyError:
         return render_template('cart.html',
-                           products=[], title="Koszyk")
+                           products=[], title="Koszyk", avg_rating=avg_rating)
 
 
     return render_template('cart.html',
-        products=[], title="Koszyk")
+        products=[], title="Koszyk", avg_rating=avg_rating)
 
 
 @app.route('/catalog')
 def catalog():
     categories = Category.query.all()
-    return render_template('browse_categories.html', categories=categories, title='Kategorie')
+    return render_template('browse_categories.html', categories=categories, title='Kategorie', avg_rating=avg_rating)
 
 
 @app.route('/order_form')
 def order_form():
-    return render_template('order_form.html', title='Formularz zamówienia')
+    return render_template('order_form.html', title='Formularz zamówienia', avg_rating=avg_rating)
 
 
 @app.route('/order', methods=['POST'])
@@ -87,7 +90,7 @@ def order():
 
 
             session['cart']=[]
-            return render_template('order_result.html', price=sum)
+            return render_template('order_result.html', price=sum, avg_rating=avg_rating)
 
         except KeyError:
             print('error1')
@@ -96,20 +99,20 @@ def order():
             session['cart'] = []
             return home()
 
-    return render_template('order_form.html', title='Formularz zamówienia')
+    return render_template('order_form.html', title='Formularz zamówienia', avg_rating=avg_rating)
 
 
 @app.route('/category/<category_id>')
 def category(category_id):
     prod_in_category = Product.query.filter(Product.category == category_id).all()
     category_name = Category.query.filter(Category.id == category_id).first().name
-    return render_template('browse_category.html', products=prod_in_category, title=f'Kategoria {category_name}')
+    return render_template('browse_category.html', products=prod_in_category, title=f'Kategoria {category_name}', avg_rating=avg_rating)
 
 
 @app.route('/product/<product_id>')
 def product(product_id):
     product = Product.query.filter(Product.id == product_id).first()
-    return render_template('browse_product.html', product=product, title=f'{product.name}')
+    return render_template('browse_product.html', product=product, title=f'{product.name}', avg_rating=avg_rating)
 
 
 @app.route('/addToCart', methods=['POST'])
@@ -125,6 +128,18 @@ def add_to_cart():
                 except KeyError:
                         session['cart'] = [product_id]
         return cart()
+
+
+@app.route('/rate', methods=['POST'])
+def rate():
+    rating = request.form.get('rate')
+    ratingText = request.form.get('text')
+    ratingText = None if ratingText == '' else ratingText
+    db_session.add(ShopRatings(rating, ratingText))
+    db_session.commit()
+    global avg_rating
+    avg_rating = db_session.query(func.avg(ShopRatings.rating).label('average')).first().average
+    return jsonify(status='success')
 
 
 if __name__ == '__main__':

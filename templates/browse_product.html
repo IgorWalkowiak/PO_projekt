@@ -7,49 +7,47 @@
   {{ super() }}
 {% endblock %}
 {% block content %}
-  <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <form action="/addToCart" method="post">
-      <div class="product-info">
-        <h3 class='product-title product-detail'> {{product.name}} </h3>
-        <div class="product-first-row">
+  <form action="/addToCart" method="post">
+    <div class="product-info">
+      <h3 class='product-title product-detail'> {{product.name}} </h3>
+      <div class="product-first-row">
+        <div>
+          <img class="product-image--big" src="{{ url_for('static', filename='icons/star.svg') }}" />
           <div>
-            <img class="product-image--big" src="{{ url_for('static', filename='icons/star.svg') }}" />
-            <div>
-              <button type="button">Poprzednie <br> zdjęcie</button>
-              <button type="button">Następne <br> zdjęcie</button>
-            </div>
-          </div>
-          <div class="product-details">
-            <p>Ilość: {{ product.amount }}</p>
-            {% if product.amount == 0 %}
-              <button class="no-prod-btn" type="button">Powiadom mnie o dostępności</button>
-            {% endif %}
-            <p>Cena: {{ product.price }} zł / szt.</p>
-            <div class="quantity buttons_added">
-              <input type="button" value="-" class="minus">
-              <input
-                type="number"
-                step="1"
-                min="1"
-                max="{{ product.amount }}"
-                name="quantity"
-                value="1"
-                title="Qty"
-                class="input-text qty text"
-                size="4"
-                pattern=""
-                inputmode=""
-                id="qtyNumber"
-              >
-              <input type="button" value="+" class="plus">
-            </div>
-            <input name ='product_id' type="hidden" value="{{product.id}}">
-            <input class="add-to-cart-btn" type="submit" value="Dodaj do koszyka">
+            <button type="button">Poprzednie <br> zdjęcie</button>
+            <button type="button">Następne <br> zdjęcie</button>
           </div>
         </div>
-        <p class="product-description">{{ product.description }}</p>
+        <div class="product-details">
+          <p>Ilość: {{ product.amount }}</p>
+          {% if product.amount == 0 %}
+            <button class="no-prod-btn" type="button">Powiadom mnie o dostępności</button>
+          {% endif %}
+          <p>Cena: {{ product.price }} zł / szt.</p>
+          <div class="quantity buttons_added">
+            <input type="button" value="-" class="minus">
+            <input
+              type="number"
+              step="1"
+              min="1"
+              max="{{ product.amount }}"
+              name="quantity"
+              value="1"
+              title="Qty"
+              class="input-text qty text"
+              size="4"
+              pattern=""
+              inputmode=""
+              id="qtyNumber"
+            >
+            <input type="button" value="+" class="plus">
+          </div>
+          <input name ='product_id' type="hidden" value="{{product.id}}">
+          <input class="add-to-cart-btn" type="submit" value="Dodaj do koszyka">
+        </div>
       </div>
+      <p class="product-description">{{ product.description }}</p>
+    </div>
   </form>
 
   <script src="{{ url_for('static', filename='assets/browse_product.js') }}"></script>
