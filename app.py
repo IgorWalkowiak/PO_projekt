@@ -4,17 +4,20 @@ import credentials
 from models import Category, Product, ShopRatings
 from product import Product as Prod
 from sqlalchemy.sql import func
+from cart import Cart
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
 init_db()
 
 avg_rating = db_session.query(func.avg(ShopRatings.rating).label('average')).first().average
-
+cart_main = Cart()
 
 @app.route('/x')
 def reset():
-    session['cart'] = []
+    #session['cart'] = Cart()
+    global cart_main
+    cart_main = Cart()
     return render_template('template.html', title="Strona główna", avg_rating=avg_rating)
 
 
@@ -25,13 +28,14 @@ def home():
 
 @app.route('/cart')
 def cart():
+    global cart_main
     try:
-        orders = list(set(session['cart']))
+        orders = cart_main.getUnique()
         print(orders)
         ordered_products = []
         for order in orders:
             db_product = Product.query.filter(Product.id == order).first()
-            order_amount = session['cart'].count(order)
+            order_amount = cart_main.countProduct(order)
             ordered_products.append(Prod(db_product.name, order_amount, db_product.price))
 
         sum = 0
@@ -63,15 +67,16 @@ def order_form():
 
 @app.route('/order', methods=['POST'])
 def order():
+    global cart_main
     if request.method == 'POST':
         print(request.form)
         delivery_type = request.form['delivery-type']
         try:
-            orders = list(set(session['cart']))
+            orders = cart_main.getUnique()
             ordered_products = []
             for order in orders:
                 db_product = Product.query.filter(Product.id == order).first()
-                order_amount = session['cart'].count(order)
+                order_amount = cart_main.countProduct(order)
                 ordered_products.append(Prod(db_product.name, order_amount,db_product.price))
 
             sum = 0
@@ -88,15 +93,14 @@ def order():
                 db_session.add(db_product)
                 db_session.commit()
 
-
-            session['cart']=[]
+            cart_main = Cart()
             return render_template('order_result.html', price=sum, avg_rating=avg_rating)
 
         except KeyError:
             print('error1')
 
         except Exception as e:
-            session['cart'] = []
+            cart_main = Cart()
             return home()
 
     return render_template('order_form.html', title='Formularz zamówienia', avg_rating=avg_rating)
@@ -117,16 +121,17 @@ def product(product_id):
 
 @app.route('/addToCart', methods=['POST'])
 def add_to_cart():
+    global cart_main
     if request.method == 'POST':
         product_id = request.form['product_id']
         amount = request.form['quantity']
         product_to_cart = Product.query.filter(Product.id == product_id).first()
-        for i in range(int(amount)):
-            if product_to_cart is not None:
-                try:
-                        session['cart'] = session['cart'] + [product_id]
-                except KeyError:
-                        session['cart'] = [product_id]
+        if product_to_cart is not None:
+            try:
+                    cart_main.add(product_id, amount)
+            except KeyError:
+                    cart_main = Cart()
+                    cart_main.add(product_id, amount)
         return cart()
 
 
