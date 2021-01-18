@@ -12,7 +12,7 @@ class Cart(dict):
     def __init__(self):
         self.content = []
         dict.__init__(self)
-        
+
     def add(self, prodId, amount):
         int(prodId)
         for _ in range(int(amount)):
