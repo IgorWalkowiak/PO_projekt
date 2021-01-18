@@ -1,10 +1,10 @@
-from database import init_db, db_session
+from models.database import init_db, db_session
 from flask import Flask, render_template, session, request, jsonify
 import credentials
-from models import Category, Product, ShopRatings
-from product import Product as Prod
+from models.models import Category, Product, ShopRatings
+from models.product import Product as Prod
 from sqlalchemy.sql import func
-from cart import Cart
+from models.cart import Cart
 
 app = Flask(__name__)
 app.secret_key = credentials.sessionSecretKey
