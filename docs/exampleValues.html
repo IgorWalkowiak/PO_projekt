@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>exampleValues.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>exampleValues.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">ShopRatings</span>
+<span class="kn">from</span> <span class="nn">database</span> <span class="kn">import</span> <span class="n">init_db</span><span class="p">,</span> <span class="n">db_session</span>
+
+
+<span class="n">init_db</span><span class="p">()</span>
+
+
+<span class="n">Product</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">synchronize_session</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Category.query.delete(synchronize_session=False)
+db_session.commit()</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pralki&quot;</span><span class="p">,</span> <span class="s2">&quot;Zmywarki&quot;</span><span class="p">,</span> <span class="s2">&quot;Lodówki&quot;</span><span class="p">,</span> <span class="s2">&quot;Piekarniki&quot;</span><span class="p">,</span> <span class="s2">&quot;Mikrofale&quot;</span><span class="p">]</span>
+<span class="n">products</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;EXPRESS Pralka&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis pralki&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Samsung QuickDrive&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis pralki&quot;</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Whirlpool FFB &quot;</span><span class="p">,</span> <span class="s2">&quot;Opis pralki&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Electrolux PerfectCare&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis pralki&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;LG Vivace&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis pralki&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Super zmywarka 20k&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis zmywarki&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Zmywarka LG&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis zmywarki&quot;</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">71</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Lodówka 3000&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis lodówki&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">82</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Lodówka Beko&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis lodówki&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">41</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Piekarniki LG&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis piekarnika&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Mikrofala SAMSUNG&quot;</span><span class="p">,</span> <span class="s2">&quot;Opis mikrofali&quot;</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Slaby&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Bardzo dobry sklep&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">Category</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">product</span> <span class="ow">in</span> <span class="n">products</span><span class="p">:</span>
+    <span class="n">prod</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="n">product</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">product</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">product</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">product</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">product</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">prod</span><span class="p">)</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">ratings</span><span class="p">:</span>
+    <span class="n">rat</span> <span class="o">=</span> <span class="n">ShopRatings</span><span class="p">(</span><span class="n">rating</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rating</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rat</span><span class="p">)</span>
+    <span class="n">db_session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

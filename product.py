@@ -1,4 +1,9 @@
+"""
+Product is a class to presents product in the shop. On this moment product class
+have one method:
 
+1. **getValue** - Method gives value of product
+"""
 
 class Product:
     def __init__(self, name, amount, price):

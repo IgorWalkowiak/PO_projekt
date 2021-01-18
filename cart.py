@@ -1,10 +1,18 @@
+"""
+Cart is a class to presents user virtual cart in the shop.
+There is three methods:
+
+1. **add** - Method add product to cart
+2. **getUnique** - Method gives unique products in cart
+3. **countProduct** - Method count specific product in cart
+"""
 
 
 class Cart(dict):
     def __init__(self):
         self.content = []
         dict.__init__(self)
-
+        
     def add(self, prodId, amount):
         int(prodId)
         for _ in range(int(amount)):
