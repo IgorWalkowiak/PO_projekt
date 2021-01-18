@@ -8,10 +8,9 @@ There is three methods:
 """
 
 
-class Cart(dict):
+class Cart():
     def __init__(self):
         self.content = []
-        dict.__init__(self)
 
     def add(self, prodId, amount):
         int(prodId)
