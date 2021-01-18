@@ -1,10 +1,6 @@
-from models.database import init_db, db_session
-from flask import Flask, render_template, session, request, jsonify
+from flask import Flask, session, request
 import credentials
-from models.models import Category, Product, ShopRatings
-from models.product import Product as Prod
 from sqlalchemy.sql import func
-from models.cart import Cart
 from controllers.controller import Controller
 
 
