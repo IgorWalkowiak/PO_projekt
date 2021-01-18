@@ -25,10 +25,10 @@ class TestProduct(unittest.TestCase):
         prod = product.Product('test', 1, 5.0)
         self.assertEqual(prod.getValue(), 5.0)
 
-        prod = product.Product('test', 3, 2.0)
+        prod = product.Product('nazwaProduktu', 3, 2.0)
         self.assertEqual(prod.getValue(), 6)
 
-        prod = product.Product('test', 5, 10)
+        prod = product.Product('nazwaProduktu 321', 5, 10)
         self.assertEqual(prod.getValue(), 50)
 
 
