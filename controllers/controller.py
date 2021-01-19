@@ -90,7 +90,7 @@ class Controller:
 
         except Exception as e:
             self.cart_main = Cart()
-            return self.home()
+            return render_template('template.html', title="Nie można stworzyć zamówienia", avg_rating=self.avg_rating)
 
     return render_template('order_form.html', title='Formularz zamówienia', avg_rating=self.avg_rating)
 
