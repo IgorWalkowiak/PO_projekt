@@ -1,0 +1,17 @@
+{
+  "id": "afb7ddc7-33e7-42e9-b533-dc03f6a67c5a",
+  "version": "2.0",
+  "name": "PO_projekt",
+  "url": "",
+  "tests": [],
+  "suites": [{
+    "id": "b767fbf1-9528-4c2e-abc6-5ed5a521a0e6",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": [],
+  "plugins": []
+}
