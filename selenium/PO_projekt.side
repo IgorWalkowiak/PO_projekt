@@ -2,8 +2,623 @@
   "id": "afb7ddc7-33e7-42e9-b533-dc03f6a67c5a",
   "version": "2.0",
   "name": "PO_projekt",
-  "url": "",
-  "tests": [],
+  "url": "http://localhost:8080/x",
+  "tests": [{
+    "id": "84dde088-fb96-401b-bf44-98c07c1cfa7a",
+    "name": "ProcTest001 - Dodanie produktu do koszyka",
+    "commands": [{
+      "id": "be23a5b4-c453-45b3-9cf9-e17f9d4809b4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/x",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46fd31ef-500c-4910-83d3-a9a1d057894d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1164x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23ff0163-6868-4e73-90c8-61fc76e74bab",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Katalog",
+      "targets": [
+        ["linkText=Katalog", "linkText"],
+        ["css=.nav-link:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Katalog')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/catalog')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Katalog')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63961d2c-a1d4-4664-83c2-37b45742add8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Pralki",
+      "targets": [
+        ["linkText=Pralki", "linkText"],
+        ["css=.category:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Pralki')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/category/1')]", "xpath:href"],
+        ["xpath=//body/div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pralki')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "81f8a64a-e4cf-4690-9101-9a0847cc9963",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Whirlpool FFB",
+      "targets": [
+        ["linkText=Whirlpool FFB", "linkText"],
+        ["css=.product:nth-child(3) > .product-title > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Whirlpool FFB')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/product/3')])[2]", "xpath:href"],
+        ["xpath=//tr[3]/td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Whirlpool FFB')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcd4601c-0437-4eaa-b550-42e658c7f587",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21e23702-7742-4fc1-8d03-f6bb856ef94d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d7a89d1-796f-4a12-8427-b247c85546d5",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a44d1546-4578-4621-ae3f-6466ec9a4c4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-to-cart-btn",
+      "targets": [
+        ["css=.add-to-cart-btn", "css:finder"],
+        ["xpath=//input[@value='Dodaj do koszyka']", "xpath:attributes"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50546d70-4739-4d7f-a922-88e3a9123bee",
+      "comment": "",
+      "command": "verifyText",
+      "target": "xpath=//tr[2]/td[2]",
+      "targets": [],
+      "value": "Whirlpool FFB"
+    }, {
+      "id": "08f8f6b6-573b-4812-b1ee-968a0105296b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.product > .product-amount",
+      "targets": [
+        ["css=.product > .product-amount", "css:finder"],
+        ["xpath=//tr[2]/td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'5')]", "xpath:innerText"]
+      ],
+      "value": "5"
+    }]
+  }, {
+    "id": "a2547eac-f8e6-486e-bd8e-8fd8bed2548d",
+    "name": "ProcTest001 - Dodanie produktu do koszyka - punkt kontrolny",
+    "commands": [{
+      "id": "7375e4d7-1d51-438a-8560-4164bc6b8443",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/x",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca02c42f-0301-40ff-be35-7fab122eb698",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aed22988-c51e-48cd-9f5a-f73aaa956492",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Katalog",
+      "targets": [
+        ["linkText=Katalog", "linkText"],
+        ["css=.nav-link:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Katalog')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/catalog')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Katalog')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7d4ff37-1399-45a6-92ba-c7038da47941",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Pralki",
+      "targets": [
+        ["linkText=Pralki", "linkText"],
+        ["css=.category:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Pralki')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/category/1')]", "xpath:href"],
+        ["xpath=//body/div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pralki')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffbd2e64-fa57-4a63-8fd8-25561d821ead",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Samsung QuickDrive",
+      "targets": [
+        ["linkText=Samsung QuickDrive", "linkText"],
+        ["css=.product:nth-child(2) > .product-title > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Samsung QuickDrive')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/product/2')])[2]", "xpath:href"],
+        ["xpath=//tr[2]/td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Samsung QuickDrive')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5010b15-fa2f-4f39-8dd6-8a1324bf1c67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42e8cf96-ff8b-4dee-8e9a-79e6cd4bbd25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7295a358-620c-4ee2-bb61-f37528ef5408",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "77075c32-e0d8-4639-9658-faa44e4a98e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5a8bb11-6c92-440f-a722-b06d1938530a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f1ae31f-3fcc-4405-913f-b8b894e2937f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1066eee-b200-49f0-abc4-e08a6a81c3a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5281aa81-12da-457d-aaca-de968e2b7125",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aeeca48f-5469-45e4-9d98-d86972538594",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "856f3c4b-90fe-4453-904d-13d1f7f9c024",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d2dc325-849a-4541-8ef8-7900616adf4c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.plus",
+      "targets": [
+        ["css=.plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29d93300-27c8-4bf0-8ec6-3ab7efc45ab5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-to-cart-btn",
+      "targets": [
+        ["css=.add-to-cart-btn", "css:finder"],
+        ["xpath=//input[@value='Dodaj do koszyka']", "xpath:attributes"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d42d6aa5-6091-4b4d-85bb-5389c853e6b7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.product > .product-title",
+      "targets": [
+        ["css=.product > .product-title", "css:finder"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Samsung QuickDrive')]", "xpath:innerText"]
+      ],
+      "value": "Samsung QuickDrive"
+    }, {
+      "id": "6c3bbff0-b74d-434d-8bbb-32f452cb2b48",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.product > .product-amount",
+      "targets": [
+        ["css=.product > .product-amount", "css:finder"],
+        ["xpath=//tr[2]/td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'9')]", "xpath:innerText"]
+      ],
+      "value": "9"
+    }]
+  }, {
+    "id": "a1c637cd-15e0-420f-bb7c-4a063105f3b6",
+    "name": "ProcTest006 - Procedura testowa dla PU Złóż zamówienie – wybranie dostawy",
+    "commands": [{
+      "id": "0fcabd74-d663-4298-85c7-95545eae018d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/x",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b8eca3d-66fa-469b-af75-6596a2b854fe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb250e73-9109-40b2-9a1e-3d6252b4736b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Katalog",
+      "targets": [
+        ["linkText=Katalog", "linkText"],
+        ["css=.nav-link:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Katalog')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/catalog')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Katalog')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a166151a-3c32-4c1e-a506-046a50f24d46",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zmywarki",
+      "targets": [
+        ["linkText=Zmywarki", "linkText"],
+        ["css=.category:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Zmywarki')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/category/2')]", "xpath:href"],
+        ["xpath=//body/div[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zmywarki')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c0a5ae87-d116-4000-8397-97d2edc19c77",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zmywarka LG",
+      "targets": [
+        ["linkText=Zmywarka LG", "linkText"],
+        ["css=.product:nth-child(2) > .product-title > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Zmywarka LG')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/product/7')])[2]", "xpath:href"],
+        ["xpath=//tr[2]/td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zmywarka LG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "beb146e8-7bf1-4849-9874-ad3557787f17",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-to-cart-btn",
+      "targets": [
+        ["css=.add-to-cart-btn", "css:finder"],
+        ["xpath=//input[@value='Dodaj do koszyka']", "xpath:attributes"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e7bf869-3081-4eb8-9242-df18808e6ec3",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.product > .product-amount",
+      "targets": [
+        ["css=.product > .product-amount", "css:finder"],
+        ["xpath=//tr[2]/td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'1')]", "xpath:innerText"]
+      ],
+      "value": "1"
+    }, {
+      "id": "a86f352e-bb9c-4fbd-adfc-34295fb816fe",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.product > .product-title",
+      "targets": [
+        ["css=.product > .product-title", "css:finder"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Zmywarka LG')]", "xpath:innerText"]
+      ],
+      "value": "Zmywarka LG"
+    }, {
+      "id": "ce4f92bf-9288-464e-80f6-9f74a79d8177",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zamów",
+      "targets": [
+        ["linkText=Zamów", "linkText"],
+        ["css=.order-link a", "css:finder"],
+        ["xpath=//a[contains(text(),'Zamów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/order_form')]", "xpath:href"],
+        ["xpath=//div/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zamów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a19d330d-8b30-4819-abf0-3c4a8528a240",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .delivery-radio",
+      "targets": [
+        ["css=div:nth-child(3) > .delivery-radio", "css:finder"],
+        ["xpath=(//input[@name='delivery-type'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a800f040-976f-4295-af52-dbebed3b05cb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.address-input:nth-child(1)",
+      "targets": [
+        ["css=.address-input:nth-child(1)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f130a53-0f8d-414d-acec-1458a370af49",
+      "comment": "",
+      "command": "type",
+      "target": "css=.address-input:nth-child(1)",
+      "targets": [
+        ["css=.address-input:nth-child(1)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "12313"
+    }, {
+      "id": "fe0ac322-5233-4b20-8799-ec8ad6a9276e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.order-btn",
+      "targets": [
+        ["css=.order-btn", "css:finder"],
+        ["xpath=//input[@value='Zamów']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "268ad6e2-a885-43f3-9a0f-015f96798f4d",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12137511-be7a-4770-9266-9aa935c5012b",
+      "comment": "",
+      "command": "type",
+      "target": "css=.address-input:nth-child(1)",
+      "targets": [
+        ["css=.address-input:nth-child(1)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//form/div[2]/input", "xpath:position"]
+      ],
+      "value": "Wro"
+    }, {
+      "id": "55384391-01a2-4200-8a49-cada4581f920",
+      "comment": "",
+      "command": "click",
+      "target": "css=.order-btn",
+      "targets": [
+        ["css=.order-btn", "css:finder"],
+        ["xpath=//input[@value='Zamów']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5889fb64-40a0-4c09-a8b4-8c2178425774",
+      "comment": "",
+      "command": "click",
+      "target": "css=.address-input:nth-child(2)",
+      "targets": [
+        ["css=.address-input:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26a0ac47-8931-4cc2-9633-d043d596a6ec",
+      "comment": "",
+      "command": "type",
+      "target": "css=.address-input:nth-child(2)",
+      "targets": [
+        ["css=.address-input:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": "Grunwald"
+    }, {
+      "id": "775cfbd8-eb4d-4f02-86d7-5c326e0c9d26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.order-btn",
+      "targets": [
+        ["css=.order-btn", "css:finder"],
+        ["xpath=//input[@value='Zamów']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8be7788-ce74-45f8-8eb7-eaa403be2c50",
+      "comment": "",
+      "command": "click",
+      "target": "css=.address-input:nth-child(3)",
+      "targets": [
+        ["css=.address-input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='text'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68fe4e5f-a9e1-4348-bba5-b4fc85489baf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.address-input:nth-child(3)",
+      "targets": [
+        ["css=.address-input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='text'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38eac1ef-becd-4d99-8db5-75ee527c6b18",
+      "comment": "",
+      "command": "type",
+      "target": "css=.address-input:nth-child(3)",
+      "targets": [
+        ["css=.address-input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='text'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[3]", "xpath:position"]
+      ],
+      "value": "12a"
+    }, {
+      "id": "85be9a86-15c9-44f1-8485-64124bc61eee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.order-btn",
+      "targets": [
+        ["css=.order-btn", "css:finder"],
+        ["xpath=//input[@value='Zamów']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec8635d4-53ed-48bb-b2ff-1e0ff40a3b79",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h1:nth-child(2)",
+      "targets": [
+        ["css=h1:nth-child(2)", "css:finder"],
+        ["xpath=//h1[2]", "xpath:position"],
+        ["xpath=//h1[contains(.,'Zamówienie złożone! Do zapłaty 250 zł')]", "xpath:innerText"]
+      ],
+      "value": "Zamówienie złożone! Do zapłaty 250 zł"
+    }]
+  }],
   "suites": [{
     "id": "b767fbf1-9528-4c2e-abc6-5ed5a521a0e6",
     "name": "Default Suite",
@@ -12,6 +627,6 @@
     "timeout": 300,
     "tests": []
   }],
-  "urls": [],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/x"],
   "plugins": []
 }
